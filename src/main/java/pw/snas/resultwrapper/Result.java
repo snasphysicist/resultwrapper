@@ -31,4 +31,12 @@ public class Result<T> {
         }
     }
 
+    public boolean succeeded() {
+        return success;
+    }
+
+    public boolean failed() {
+        return !success;
+    }
+
 }
