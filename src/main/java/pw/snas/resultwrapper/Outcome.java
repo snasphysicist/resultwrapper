@@ -37,4 +37,8 @@ public class Outcome {
         return !success;
     }
 
+    public String getFailureReason() {
+        return failureReason;
+    }
+
 }
