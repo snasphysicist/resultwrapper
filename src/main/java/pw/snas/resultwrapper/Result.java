@@ -39,4 +39,12 @@ public class Result<T> {
         return !success;
     }
 
+    public String getFailureReason() {
+        return failureReason;
+    }
+
+    public T getResult() {
+        return result;
+    }
+
 }
