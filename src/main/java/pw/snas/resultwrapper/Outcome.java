@@ -29,4 +29,12 @@ public class Outcome {
         }
     }
 
+    public boolean succeeded() {
+        return success;
+    }
+
+    public boolean failed() {
+        return !success;
+    }
+
 }
