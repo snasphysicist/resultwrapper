@@ -76,3 +76,79 @@ public static void main(
 }
 
 ```
+
+### Result
+
+The result class can be used for an operation that should produce a result which needs to be returned to the calling method and that may fail. An example would be to abstract away the exception handling when parsing a number out from a string.
+
+```
+Result<Integer> stringToInteger(
+  String toParse
+) {
+  Result<Integer> result = new Result<Integer>();
+  try {
+    Integer i = Integer.parseInt(toParse);
+    result.succeed(i);
+  } catch (NumberFormatException e) {
+    result.fail(
+      String.format(
+        "The string provided (%s) does not represent a valid integer",
+        toParse
+      )
+    );
+  }
+  return result;
+}
+
+public static void main(
+  String[] args
+) {
+
+  String toParse1 = "76";
+  String toParse2 = "19.284";
+
+  Result<Integer> firstParsing = stringToInteger(
+    toParse1
+  );
+  Result<Integer> secondParsing = stringToInteger(
+    toParse2
+  );
+
+  // Display messages, log errors, etc...
+
+  if (firstParsing.success()) {
+    System.out.println(
+      String.format(
+        "Success! String %s parsed to integer %d",
+        toParse1,
+        firstParsing.result()
+      )
+    );
+  } else {
+    System.out.println(
+      String.format(
+        "Error! String %s could not be parsed as integer",
+        toParse1,
+      )
+    );
+  }
+
+  if (secondParsing.success()) {
+    System.out.println(
+      String.format(
+        "Success! String %s parsed to integer %d",
+        toParse2,
+        secondParsing.result()
+      )
+    );
+  } else {
+    System.out.println(
+      String.format(
+        "Error! String %s could not be parsed as integer",
+        toParse2,
+      )
+    );
+  }
+
+}
+```
