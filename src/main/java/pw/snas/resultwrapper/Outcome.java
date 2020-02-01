@@ -25,7 +25,11 @@ public class Outcome {
     private String failureReason;
 
     /**
-     * Default constructor
+     * Default constructor -
+     * assumes that the operation
+     * is not successful initially
+     * and sets the failure message
+     * to the default one
      */
     public Outcome() {
         success = false;

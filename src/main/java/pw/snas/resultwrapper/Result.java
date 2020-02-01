@@ -18,9 +18,9 @@ public class Result<T> {
     private static final String DEFAULT_REASON = "No result found";
 
     /**
-     * Records whether operation
-     * to produce the result
-     * was successful
+     * Records whether the
+     * operation to produce
+     * the result was successful
      */
     private boolean success;
 
@@ -32,12 +32,15 @@ public class Result<T> {
 
     /**
      * The result of the operation
-     * stored on success
+     * stored if it is successful
      */
     private T result;
 
     /**
-     * Default constructor
+     * Default constructor -
+     * assumes failure initially
+     * and sets the reason
+     * to the default one
      */
     public Result() {
         success = false;
@@ -71,7 +74,7 @@ public class Result<T> {
 
     /**
      * Check whether the operation was successful
-     * @return True when the operation was reported successful, false otherwise
+     * @return True when the operation was reported successful, False otherwise
      */
     public boolean succeeded() {
         return success;
@@ -79,7 +82,7 @@ public class Result<T> {
 
     /**
      * Check whether the operation failed
-     * @return False when the operation was reported failed, false otherwise
+     * @return False when the operation was reported failed, True otherwise
      */
     public boolean failed() {
         return !success;
