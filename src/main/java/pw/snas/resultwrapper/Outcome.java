@@ -3,7 +3,7 @@ package pw.snas.resultwrapper;
 
 /**
  * @author Scott Nicholas Allan Smith
- * @version 1.0.0
+ * @version 1.0.1
  * @since 1.0.0
  */
 
